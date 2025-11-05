@@ -1,9 +1,33 @@
+/* Define CSS variables for themes */
+:root {
+  /* Light theme colors */
+  --bg-color: #ffffff;
+  --text-color: #333333;
+  --highlight-color: #dd75f7;
+  --card-bg: #ffffff;
+  --card-shadow: rgba(255, 148, 255, 0.911);
+  --button-bg: #dd75f7;
+  --button-hover-bg: #813f92;
+}
+
+/* Dark theme overrides */
+[data-theme="dark"] {
+  --bg-color: black;
+  --text-color: #f0f0f0;
+  --highlight-color: #ff75c1;
+  --card-bg: #2a2a2a;
+  --card-shadow: rgba(0, 0, 0, 0.5);
+  --button-bg: #ff75c1;
+  --button-hover-bg: #813f92;
+}
+
+/* Section1 */
 .section1 {
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 4rem 8%;
-  background: white;
+  background: var(--bg-color);
   gap: 3rem;
 }
 
@@ -13,14 +37,14 @@
 
 .section1text h2 {
   font-size: 2.5rem;
-  color: #dd75f7; /* deep blue */
+  color: var(--highlight-color);
   margin-bottom: 1rem;
   text-align: center;
 }
 
 .section1text p {
   font-size: 1.3rem;
-  color: #000000; /* gray text */
+  color: var(--text-color);
   line-height: 1.6;
   max-width: 500px;
   text-align: center;
@@ -49,11 +73,9 @@
   }
 }
 
-
-
-
+/* Section2 */
 .section2 {
-  background: #ffffff;
+  background: var(--bg-color);
   padding: 10px 20px;
   text-align: center;
   font-family: 'Arial', sans-serif;
@@ -62,13 +84,14 @@
 .section2 h1 {
   font-size: 40px;
   margin-bottom: 10px;
-  color: #333;
+  color: var(--text-color);
 }
 
 .section2 h1 b {
-  color: #dd75f7; /* make "MyStudyBuddy" stand out */
+  color: var(--highlight-color);
 }
 
+/* Features layout */
 .features {
   display: flex;
   flex-wrap: wrap;
@@ -82,17 +105,19 @@
   list-style: none;
   padding: 0;
   display: flex;
-  flex-wrap: wrap;
+  flex-wrap: nowrap;
   justify-content: center;
   gap: 30px;
 }
 
 .featurelist li {
-  background: radial-gradient(circle, white 0%, white 40%, #efadff 100%);
+  background: var(--card-bg);
   border-radius: 15px;
   padding: 30px 20px;
   width: 250px;
-  box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+  margin-top: 30px;
+  border: 2px solid var(--card-bg);
+  box-shadow: 0 10px 25px var(--card-shadow);
   transition: transform 0.3s, box-shadow 0.3s;
   text-align: center;
 }
@@ -105,12 +130,28 @@
 .featurelist li h1 {
   font-size: 22px;
   margin-bottom: 10px;
-  color: #dd75f7;
+  color: var(--highlight-color);
 }
 
 .featurelist li p {
   font-size: 16px;
-  color: #555;
+  color: var(--text-color);
   line-height: 1.5;
 }
 
+/* Buttons */
+button {
+  background: var(--button-bg);
+  color: white;
+  border: none;
+  padding: 12px 25px;
+  border-radius: 25px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background 0.3s;
+  margin-top: 15px;
+}
+
+button:hover {
+  background: var(--button-hover-bg);
+}

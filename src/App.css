@@ -1,11 +1,24 @@
-#root {
+:root {
   max-width: 1280px;
   margin: 0 auto;
   padding: 2rem;
-  background-color: #ffffff;
+  --bg-color: #ffffff;
+}
+[data-theme="dark"] {
+  --bg-color: black;
+  --text-color: #f0f0f0;
+  --highlight-color: #ff75c1;
+  --card-bg: #2a2a2a;
+  --card-shadow: rgba(0, 0, 0, 0.5);
+  --button-bg: #ff75c1;
+  --button-hover-bg: #813f92;
 }
 
-
+#root{
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  min-height: 100vh;
+}
 
 @keyframes logo-spin {
   from {

@@ -1,8 +1,10 @@
 import React from "react";
 import "./navbar.css";
-function Navbar() {
+import { useState,useEffect } from "react";
+function Navbar({changetheme}) {
     return(
         <nav className="navbar">
+            <button className="theme" onClick={changetheme}>Theme</button>
             <ul>
                 <li>Home</li>
                 <li>Summary</li>
