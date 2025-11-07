@@ -1,8 +1,10 @@
 import { useEffect, useState } from 'react'
+import { BrowserRouter as Router,Routes,Route } from 'react-router-dom'
 import './App.css'
 import Navbar from './Navbar'
-import Home from './Home'
-import { SignIn, SignUp } from './auth'
+import Home from './homepage/Home'
+import SignUp from './auth/signup'
+import SignIn from './auth/signin'
 
 function App() {
   const [theme, setTheme] = useState('light')
@@ -18,10 +20,14 @@ function App() {
   }
 
   return (
-    <>
+    <Router>
       <Navbar theme={theme} changetheme={changeTheme}/>
-      <Home banner={banner}/>
-    </>
+      <Routes>
+        <Route path="/" element={<Home banner={banner}/>}/>
+        <Route path="/signup" element={<SignUp/>}/>
+        <Route path="/signin" element={<SignIn/>}/>
+      </Routes>
+    </Router>
   )
 }
 

@@ -22,7 +22,7 @@
 }
 
 [data-theme="dark"] {
-  --bg-color: #1a1a1a;
+  --bg-color: #000000;
   --text-color: #f0f0f0;
   --highlight-color: #ff75c1;
   --card-bg: #2a2a2a;

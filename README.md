@@ -14,3 +14,19 @@ The React Compiler is not enabled on this template because of its impact on dev 
 ## Expanding the ESLint configuration
 
 If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+
+# Enable Claude Sonnet 3.5
+
+## Description
+Enables Claude Sonnet 3.5 model access for all clients in the system.
+
+## Details
+- Grants universal access to Claude Sonnet 3.5 capabilities
+- Applied globally across all client accounts
+- No client-specific configuration required
+
+## Usage
+Set this flag to enable Claude Sonnet 3.5 features system-wide.
+
+## Note
+Ensure sufficient system resources and licensing are available before enabling.

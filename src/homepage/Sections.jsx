@@ -9,7 +9,7 @@ function Section1({banner}){
                 <h2>Welcome to  <b style={{fontWeight:"bolder",fontSize:"50px"}}>MyStudyBuddy</b></h2>
                 <p>Our goal is to help you study more effectively.Your personal study assistant. Upload any material and watch it turn into clear summaries, flashcards, and study tools.</p>
             </div>
-            <img src={`./src/assets/${banner}`} alt="Banner" className="banner" />
+            < img src={`./src/assets/${banner}`} alt="Banner" className="banner" />
         </div>
     )
 }
