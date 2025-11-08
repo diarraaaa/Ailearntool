@@ -47,9 +47,19 @@
   font-size: 16px;
   align-items: center;
 }
-
+.logout-button {
+  background-color:transparent;
+  color: var(--button-text);
+  border: none;
+  padding: 0.5rem 1.2rem;
+  border-radius: 25px;
+  font-weight: 600;
+  font-size: 14px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
 /* Menu items */
-.navbar ul li {
+.navbar ul li, .logout-button {
   color: var(--navbar-text);
   text-decoration: none;
   font-weight: 600;
@@ -61,7 +71,7 @@
 }
 
 /* Smooth underline animation */
-.navbar ul li::after {
+.navbar ul li::after, .logout-button::after {
   content: '';
   position: absolute;
   bottom: 0;
@@ -72,11 +82,11 @@
   transition: width 0.3s ease;
 }
 
-.navbar ul li:hover::after {
+.navbar ul li:hover::after, .logout-button:hover::after {
   width: 100%;
 }
 
-.navbar ul li:hover {
+.navbar ul li:hover, .logout-button:hover {
   color: var(--navbar-hover);
 }
 

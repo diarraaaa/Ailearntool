@@ -1,6 +1,7 @@
 import React from 'react';
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
+import {useNavigate} from 'react-router-dom';   
 import {supabase} from '../supabase';
 import './auth.css';
 
@@ -8,6 +9,7 @@ function SignIn() {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [message, setMessage] = useState('');
+    const navigate=useNavigate();
     const handleSignin = async (e) => {
         e.preventDefault();
 
@@ -15,10 +17,11 @@ function SignIn() {
             email,
             password,
         }); 
-            
-        if (error) {
+        console.log(data.session);
+        if (error) {  
             setMessage(`Error: ${error.message}`);
         } else {
+            navigate('/profile');
             setMessage('Signin successful! Welcome back.');
         }
     }

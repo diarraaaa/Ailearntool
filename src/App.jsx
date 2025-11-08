@@ -5,6 +5,8 @@ import Navbar from './Navbar'
 import Home from './homepage/Home'
 import SignUp from './auth/signup'
 import SignIn from './auth/signin'
+import Profile from './profile/profile'
+import Try from './otherpages/try'
 
 function App() {
   const [theme, setTheme] = useState('light')
@@ -26,6 +28,8 @@ function App() {
         <Route path="/" element={<Home banner={banner}/>}/>
         <Route path="/signup" element={<SignUp/>}/>
         <Route path="/signin" element={<SignIn/>}/>
+        <Route path="/profile" element={<Profile/>}/>
+        <Route path="/try" element={<Try/>}/>
       </Routes>
     </Router>
   )
