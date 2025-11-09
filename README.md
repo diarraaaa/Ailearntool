@@ -1,32 +1,133 @@
-# React + Vite
+# 📚 My Study Buddy
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+> Transform your study materials into interactive learning experiences with AI-powered content generation.
 
-Currently, two official plugins are available:
+![License](https://img.shields.io/badge/license-MIT-blue.svg)
+![React](https://img.shields.io/badge/React-18.x-61dafb.svg)
+![Supabase](https://img.shields.io/badge/Supabase-Backend-3ecf8e.svg)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Overview
 
-## React Compiler
+My Study Buddy is an intelligent web application that helps students study more effectively by automatically generating summaries, quizzes, and flashcards from their course materials. Built with React and powered by AI, it provides a personalized learning experience that adapts to each student's needs.
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## ✨ Features
 
-## Expanding the ESLint configuration
+### 🔐 Secure Authentication
+- Email-based sign up with verification
+- Secure login via Supabase authentication
+- Persistent session management
+- Profile-based content organization
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+### 📊 Personal Dashboard
+- View all your generated study materials in one place
+- Manage and organize your content
+- Delete materials you no longer need
+- Track your study progress
 
-# Enable Claude Sonnet 3.5
+### 📁 Flexible Content Input
+- **File Upload**: Support for PDF, DOC, DOCX, and TXT files
+- **Text Paste**: Direct input for notes, articles, or web content
+- **Easy Switching**: Toggle between upload and paste modes seamlessly
 
-## Description
-Enables Claude Sonnet 3.5 model access for all clients in the system.
+### 🤖 AI-Powered Generation
+- **Smart Summaries**: Condense lengthy materials into key points
+- **Custom Quizzes**: Generate practice questions from your content
+- **Flashcards**: Create memory aids for active recall
+- **Selective Generation**: Choose which materials to create for each input
 
-## Details
-- Grants universal access to Claude Sonnet 3.5 capabilities
-- Applied globally across all client accounts
-- No client-specific configuration required
+### 🎨 Customizable Interface
+- Light and dark mode themes
+- Responsive design for all devices
+- Clean, distraction-free interface
+- Intuitive navigation
 
-## Usage
-Set this flag to enable Claude Sonnet 3.5 features system-wide.
 
-## Note
-Ensure sufficient system resources and licensing are available before enabling.
+## 📖 Usage
+
+### Creating Study Materials
+
+1. **Sign Up or Log In** to access your personal dashboard
+2. **Navigate to the Home page** or generation interface
+3. **Choose your input method**:
+   - Upload a file (PDF, DOC, DOCX, TXT)
+   - Paste text directly
+4. **Select what to generate**:
+   - ☑️ Summary
+   - ☑️ Quiz
+   - ☑️ Flashcards
+5. **Click "Generate Study Materials"** and wait for AI processing
+6. **View and manage** your materials from your profile
+
+### Managing Content
+
+- Access your **Profile Dashboard** to see all generated materials
+- **Download** materials for offline use
+- **Delete** content you no longer need
+- All materials are automatically saved to your account
+
+## 🛠️ Tech Stack
+
+| Technology | Purpose |
+|------------|---------|
+| **React.js** | Frontend framework |
+| **React Router** | Navigation and routing |
+| **Supabase** | Authentication & database |
+| **CSS Modules** | Scoped styling |
+| **AI API** | Content generation |
+| **Hooks** | State management (useState, useEffect) |
+
+## 📂 Project Structure
+
+```
+my-study-buddy/
+├── public/
+├── src/
+│   ├── components/
+│   │   ├── Navbar/
+│   │   ├── Home/
+│   │   ├── Profile/
+│   │   └── Auth/
+│   ├── services/
+│   │   ├── supabase.js
+│   │   └── ai.js
+│   ├── styles/
+│   ├── App.js
+│   └── index.js
+├── .env
+├── package.json
+└── README.md
+```
+
+## 🗺️ Roadmap
+
+- [ ] **Real-time Collaboration** - Study together with classmates
+- [ ] **Adaptive Learning** - AI-powered difficulty adjustment
+- [ ] **Mobile App** - Native iOS and Android applications
+- [ ] **Material Editing** - In-app annotation and customization
+- [ ] **Study Statistics** - Track your learning progress
+- [ ] **Notification System** - Reminders and achievement alerts
+- [ ] **Export Options** - PDF, Anki, and more formats
+
+
+
+## 👥 Authors
+
+- **Mame Diarra Dieng** - *Initial work* - (https://github.com/diarraaaa)
+
+## 🙏 Acknowledgments
+
+- Supabase for providing an excellent backend platform
+- The React community for incredible tools and resources
+- All contributors who help improve this project
+
+## 📧 Contact
+
+Have questions or suggestions? Reach out:
+
+- Email: mamediarradieng@esp.sn
+
+---
+
+<div align="center">
+Made with ❤️ for students everywhere
+</div>
