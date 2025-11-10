@@ -1,5 +1,6 @@
 /* Educational Study Buddy CSS - Student Friendly */
 
+
 :root {
   --primary-blue: #4A90E2;
   --primary-green: #7ED321;
@@ -237,7 +238,7 @@ body {
 .form-group textarea:focus {
   outline: none;
   border-color: var(--primary-blue);
-  background: #F0F7FF;
+  background:transparent;
   box-shadow: 0 0 0 3px rgba(74, 144, 226, 0.1);
 }
 

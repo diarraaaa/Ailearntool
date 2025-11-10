@@ -5,39 +5,62 @@ import ReactMarkdown from 'react-markdown'
 import {imagetoText} from '../services/groq';
 import {summarizeText} from '../services/groq';
 import { reformulateText } from '../services/groq';
+import {generateArticles} from '../services/groq'
 import {explainText} from '../services/groq'
 function Try() {
     const [inputType, setInputType] = useState('file'); 
     const [summary,setsummary]=useState('')
     const [reformulatedtext,setreformulatedtext]=useState('')
     const [explanation,setexplanation]=useState('')
+    const [articles,setarticles]=useState('')
     const [loading,setloading]=useState(false)
     const [error,seterror]=useState(null)
+    const [tasktodo,settasktodo]=useState('')
+    const [title,settitle]=useState('')
     const generatematerial=async()=>{
         try{
             setloading(true)
             if(inputType==='text'){
                 const texttouse=document.getElementById('content-text').value;
-                const tasktodo=document.querySelector('input[name="generation-type"]:checked').value;
+                settasktodo(document.querySelector('input[name="generation-type"]:checked').value);
                     if(tasktodo==='summary'){
+                        seterror(null)
                         setsummary(null);
                         const result=await summarizeText(texttouse);
                         setsummary(result)
                         setreformulatedtext(null)
                         setexplanation(null);
+                        setarticles(null);
+                        settasktodo('Summary')
                     }
                     else if(tasktodo==='reformulate'){
+                        seterror(null)
                         setreformulatedtext(null);
                         const result=await reformulateText(texttouse);
                         setreformulatedtext (result);
                         setsummary(null);
                         setexplanation(null);
+                        setarticles(null);
+                        settasktodo('Reformulate')
+    
                     }else if(tasktodo==='explanation'){
+                        seterror(null)
                         setexplanation(null);
                         const result= await explainText(texttouse)
                         setexplanation(result);
                         setsummary(null);
                         setreformulatedtext(null);
+                        setarticles(null);
+                        settasktodo('Explanation')
+                    }else if (tasktodo==='articles'){
+                        seterror(null)
+                        setarticles(null)
+                        const result=await generateArticles (texttouse)
+                        setarticles(result)
+                        setsummary(null);
+                        setreformulatedtext(null);
+                        setexplanation(null);
+                        settasktodo('Article Recommendations')
                     }
             }
         }catch(error){ 
@@ -77,7 +100,7 @@ function Try() {
                         {inputType === 'file' ? 
                         (
                             <div className="form-group" style={{fontWeight:"bold",color:"red"}}>
-                                Sign in to use file upload feature.
+                                🔒 Sign in to use file upload feature 🔒.
                             </div>
                         ) : (
                             <>
@@ -87,6 +110,7 @@ function Try() {
                                 type="text" 
                                 id="content-title"
                                 placeholder="Enter a title for your study material"
+                                onChange={(e)=>settitle(e.target.value)}
                             />
                             </div> 
                             <div className="form-group">
@@ -138,12 +162,14 @@ function Try() {
                     </div>
                 </section>
                 <section className="profile-section">
-                    <h2>Generated Material</h2>
+                    <h2>Generated Material:{tasktodo ?<span >{tasktodo}</span>:null}</h2>
                     <div className="materials-list">
+                       {title ? <h2>{title}</h2> : null}
                        {loading ? <p style={{ color: 'blue' }}>Generating material...</p>:null}    
                        {summary ? <ReactMarkdown>{summary}</ReactMarkdown> : null}
                        {reformulatedtext ? <ReactMarkdown>{reformulatedtext}</ReactMarkdown> : null}
                        {explanation ? <ReactMarkdown>{explanation}</ReactMarkdown> : null}
+                       {articles ? <ReactMarkdown>{articles}</ReactMarkdown> : null}
                        {error && <p className="error-text">{error}</p>}
                     </div>
                 </section>

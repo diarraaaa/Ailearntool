@@ -157,8 +157,32 @@ export async function explainText(text) {
 
         return chatCompletion.choices[0]?.message?.content || 'No reformulated text generated. Try again.';
     } catch (error) {
-        console.error("Error reformulating text:", error);
-        return 'Error generating reformulated text. Please try again.';
+        console.error("Error explaining text:", error);
+        return 'Error explaining text. Please try again.';
     }
 }
+export async function generateArticles(text) {
+    try {
+        const chatCompletion = await groq.chat.completions.create({
+        "messages": [
+            {
+            "role": "user",
+            "content": "You are an study assistant.).You have to find relevant articles based on the given text.Return them to me with their titles and links clickable using markdown  and a quick summary.Make sure the links are valid and available. Here is the text to explain:\n\n" + text
+            }
+        ],
+        "model": "meta-llama/llama-4-scout-17b-16e-instruct",
+        "temperature": 1,
+        "max_completion_tokens": 1024,
+        "top_p": 1,
+        "stream": false,
+        "stop": null
+        });
+
+        return chatCompletion.choices[0]?.message?.content || 'No articles found. Try again.';
+    } catch (error) {
+        console.error("Error finding articles:", error);
+        return 'Error finding articles. Please try again.';
+    }
+}
+
 export default groq;
